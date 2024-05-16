@@ -33,14 +33,8 @@ public class OrderController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public @NotNull List<Order> listOrders() {
+    public @NotNull Iterable<Order> getAllOrders() {
         return orderService.getAllOrders();
-    }
-
-    @GetMapping("/items/all")
-    @ResponseStatus(HttpStatus.OK)
-    public @NotNull List<OrderItem> listOrderItems() {
-        return orderItemService.getAllOrderItems();
     }
 
     @PostMapping

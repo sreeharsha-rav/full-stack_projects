@@ -9,6 +9,5 @@ import java.util.List;
 
 @Validated
 public interface OrderItemService {
-    @NotNull List<OrderItem> getAllOrderItems();
     @NotNull List<OrderItem> createOrderItems(@NotNull(message = "The order items cannot be null.") @Valid List<OrderItem> orderItems);
 }

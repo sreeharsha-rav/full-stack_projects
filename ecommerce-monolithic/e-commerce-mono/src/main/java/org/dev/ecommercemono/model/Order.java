@@ -2,7 +2,7 @@ package org.dev.ecommercemono.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -19,6 +19,8 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "orderItems")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Order {
 
     @Id
@@ -30,7 +32,6 @@ public class Order {
 
     private String status;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "pk.order")
     @Valid
     private List<OrderItem> orderItems = new ArrayList<>();
