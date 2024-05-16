@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @Transactional
@@ -16,7 +17,8 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public Iterable<Order> getAllOrders() {
+    public List<Order> getAllOrders() {
+        // TODO: Construct a response object to return the data
         return orderRepository.findAll();
     }
 

@@ -17,11 +17,19 @@ public class ECommerceMonoApplication {
 	@Bean
 	CommandLineRunner runner(ProductService productService) {
 		return args -> {
-			productService.save(new Product(1L, "TV Set", 300.00, "http://placehold.it/200x100"));
-			productService.save(new Product(2L, "Game Console", 200.00, "http://placehold.it/200x100"));
-			productService.save(new Product(3L, "Sofa", 100.00, "http://placehold.it/200x100"));
-			productService.save(new Product(4L, "Icecream", 5.00, "http://placehold.it/200x100"));
-			productService.save(new Product(5L, "Beer", 3.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(1L, "TV", 300.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(2L, "Laptop", 800.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(3L, "Smartphone", 500.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(4L, "Tablet", 300.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(5L, "Headphones", 150.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(6L, "Smart Watch", 200.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(7L, "Gaming Console", 400.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(8L, "Bluetooth Speaker", 120.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(9L, "Camera", 700.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(10L, "Printer", 250.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(11L, "Monitor", 200.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(12L, "Keyboard", 50.00, "http://placehold.it/200x100"));
+			productService.saveProduct(new Product(13L, "Mouse", 30.00, "http://placehold.it/200x100"));
 		};
 	}
 
