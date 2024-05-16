@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @Component({
@@ -8,15 +7,13 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
   standalone: true,
   imports: [
     NavbarComponent,
-    EcommerceComponent,
     RouterOutlet
   ],
   template: `
     <app-navbar></app-navbar>
     <div class="container mt-2">
-      <app-ecommerce></app-ecommerce>
+      <router-outlet />
     </div>
-    <router-outlet />
   `,
   styles: [],
 })
