@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { EcommerceComponent } from './ecommerce/ecommerce.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    NavbarComponent,
+    EcommerceComponent,
+    RouterOutlet
+  ],
   template: `
-    <h1>Welcome to {{title}}!</h1>
-
+    <app-navbar></app-navbar>
+    <div class="container mt-2">
+      <app-ecommerce></app-ecommerce>
+    </div>
     <router-outlet />
   `,
   styles: [],
