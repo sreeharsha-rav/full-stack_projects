@@ -1,0 +1,53 @@
+<!-- Orders -->
+<div class="container">
+    <div class="row">
+      <h2>Orders</h2>
+      <hr>
+      <br>
+      <div class="col-md-12">
+        <!-- Loop through orders -->
+        @for (order of orders; track order.id) {
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-baseline">
+              <div class="flex-grow-1">
+                <h5>Order ID: {{order.id }}</h5>
+              </div>
+              <div class="px-2">
+                <p>Order Date: {{ order.dateCreated }}</p>
+              </div>
+              <div class="px-2">
+                <p>Status: <span class="badge text-bg-primary">{{ order.status }}</span></p>
+              </div>
+            </div>
+            <div class="card-body">
+                <!-- Nested loop to display order items -->
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                  </tr>
+                  @for (orderItem of order.orderItems; track orderItem) {
+                    <tr>
+                      <td>{{ orderItem.product.id }}</td>
+                      <td>{{ orderItem.product.name }}</td>
+                      <td>{{ orderItem.quantity }}</td>
+                      <td><b>${{ orderItem.totalPrice }}</b></td>
+                    </tr>
+                  }
+                </table>
+            </div>
+            <div class="card-footer d-flex justify-content-end align-items-baseline">
+              <div class="px-2">
+                <p>Total Items: {{ order.numberOfItems }}</p>
+              </div>
+              <div class="px-2">
+                <p><b>Total Price: ${{ order.totalOrderPrice }}</b></p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+</div>

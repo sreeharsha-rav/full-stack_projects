@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
             <p class="lead">This is a simple E-Commerce app built with Angular and Bootstrap.</p>
             <hr class="my-4">
             <p>This app demonstrates e-commerce features like product listing, product details, and order placement.</p>
-            <a class="btn btn-primary btn-lg" href="products" role="button">See Products</a>
+            <a class="btn btn-primary btn-lg" href="shop" role="button">Start Shopping</a>
           </div>
         </div>
       </div>

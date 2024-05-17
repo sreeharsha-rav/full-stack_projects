@@ -11,7 +11,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
   ],
   template: `
     <app-navbar></app-navbar>
-    <div class="container mt-2">
+    <div class="container pt-2 pb-5">
       <router-outlet />
     </div>
   `,
