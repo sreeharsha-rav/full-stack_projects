@@ -1,27 +1,69 @@
-# EcommerceFrontend
+# E-commerce Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+A simple frontend for an e-commerce website. It's a single page application that uses Angular and Bootstrap. It has the following features:
+- Navbar with links to Home, Products, and Orders
+- Home page with a welcome message
+- Products page with a list of products and a cart to add products and checkout
+- Orders page with a list of orders placed
 
-## Development server
+## Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 17
+- Bootstrap 5
 
-## Code scaffolding
+## Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Project Structure
 
-## Build
+Main files and directories:
+```
+e-commerce-frontend/
+├── src/                            # Source files
+│   ├── app/                        # Applicate specific code
+│   │   ├── ecommerce/              # E-commerce specific code
+│   │   │   ├── orders/             # Orders component
+│   │   │   ├── products/           # Products component
+|   |   |   ├── shopping-cart/      # Shopping cart component
+│   │   ├── ecommerce.component.ts  # E-commerce component
+│   │   ├── shared/                 # Shared code
+│   │   │   |   ├── home/           # Home component
+│   │   │   |   ├── navbar/         # Navbar component
+│   │   ├── app.component.ts        # Root component
+│   │   ├── ... etc
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Core Components
 
-## Running unit tests
+- `app.component.ts`: Root component that contains the navbar and the router outlet.
+- `navbar.component.ts`: Navbar component that contains the links to Home, Products, and Orders.
+- `home.component.ts`: Home component that displays a welcome message.
+- `ecommerce.component.ts`: E-commerce component that contains the Products and Orders components.
+- `products.component.ts`: Products component that displays a list of products.
+- `shopping-cart.component.ts`: Shopping cart component that displays the products added to the cart.
+- `orders.component.ts`: Orders component that displays a list of orders placed.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Component Map
 
-## Running end-to-end tests
+- **App Component**
+  - **Navbar Component**
+    - **Home Component**
+    - **E-commerce Component**
+        - **Products Component**
+        - **Shopping Cart Component**
+    - **Orders Component**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Routing
 
-## Further help
+- '' -> Redirects to Home component
+- '/home' -> Home component
+- '/shop' -> Products component
+- '/orders' -> Orders component
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Further Improvements
+
+- Add more products to the products list with pagination
+- Add a product detail page
+- Add a search bar to search for products
+- Making Shopping Cart a separate component
+- Add a checkout page
+- Support for user authentication and authorization

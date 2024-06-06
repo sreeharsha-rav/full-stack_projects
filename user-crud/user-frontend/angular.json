@@ -2,12 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "pnpm",
-    "analytics": "ec4c66f5-2de2-416c-a611-455325570ff7"
+    "packageManager": "pnpm"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ecommerce-frontend": {
+    "user-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -44,7 +43,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ecommerce-frontend",
+            "outputPath": "dist/user-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -56,16 +55,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -95,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ecommerce-frontend:build:production"
+              "buildTarget": "user-frontend:build:production"
             },
             "development": {
-              "buildTarget": "ecommerce-frontend:build:development"
+              "buildTarget": "user-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -106,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ecommerce-frontend:build"
+            "buildTarget": "user-frontend:build"
           }
         }
       }
