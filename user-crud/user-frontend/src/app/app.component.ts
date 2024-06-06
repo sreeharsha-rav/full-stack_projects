@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserComponent } from './user/user.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
+  imports: [
+    NavbarComponent,
+    UserComponent
+  ],
   template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    
+    <app-navbar></app-navbar>
+    <div>
+      <app-user></app-user>
+    </div>
   `,
   styles: [],
 })
