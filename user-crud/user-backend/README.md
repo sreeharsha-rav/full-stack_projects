@@ -44,3 +44,10 @@ A simple user CRUD with a REST API. It uses Spring Boot, Spring Data JPA, and H2
     - Create a new user: `POST http://localhost:8080/users`
     - Update a user by ID: `PUT http://localhost:8080/users/{id}`
     - Delete a user by ID: `DELETE http://localhost:8080/users/{id}`
+
+## Further Improvements
+
+- Add validation for user fields
+- Add pagination and sorting for listing users
+- Add exception handling
+- Test the application
