@@ -23,11 +23,11 @@ import { ReactiveFormsModule, FormControl } from '@angular/forms';
       <mat-dialog-content>
         <p>Id: {{data.id}}</p>
         <p>Edit Name</p>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <input matInput [formControl]="nameControl" placeholder="Name">
         </mat-form-field>
         <p>Edit Email</p>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <input matInput [formControl]="emailControl" placeholder="Email">
         </mat-form-field>
       </mat-dialog-content>
@@ -68,7 +68,7 @@ export class EditUserDialogComponent {
     };
     const id = this.data.id;
 
-    this.userService.updateUser(id, userRequest, {responseType: 'text'}).subscribe((data) => {
+    this.userService.updateUser(id, userRequest).subscribe((data) => {
       console.log(data);
     });
     this.dialogRef.close(this.data);

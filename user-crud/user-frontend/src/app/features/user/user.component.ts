@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { UserTableComponent } from './user-table/user-table.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +11,8 @@ import { UserTableComponent } from './user-table/user-table.component';
   imports: [
     MatDividerModule,
     MatButtonModule,
-    UserTableComponent
+    UserTableComponent,
+    AddUserDialogComponent
   ],
   template: `
     <div class="create-user">
@@ -34,9 +37,16 @@ import { UserTableComponent } from './user-table/user-table.component';
 })
 export class UserComponent {
 
-  constructor() {}
+  constructor(private addDialog: MatDialog) {}
+
+  @ViewChild(UserTableComponent) userTable!: UserTableComponent;  // Reference to the user table component
 
   openAddUserDialog() {
-    console.log('Add User');
+    const dialogRef = this.addDialog.open(AddUserDialogComponent);
+
+    // Update the table after the dialog closes
+    dialogRef.afterClosed().subscribe(result => {
+      this.userTable.getUserData();
+    });
   }
 }

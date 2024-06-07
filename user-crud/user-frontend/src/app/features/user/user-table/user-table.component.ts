@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { Component, ViewChild } from '@angular/core';
+import { MatTableModule, MatTable } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
@@ -70,6 +70,7 @@ export class UserTableComponent {
     this.userService.getAllUsers().subscribe((data) => {
       this.dataSource = data.users;
     });
+
   }
 
   openEditUserDialog(row: User) {
@@ -89,8 +90,9 @@ export class UserTableComponent {
   }
 
   deleteUser(row: User) {
-    this.userService.deleteUser(row.id).subscribe(() => {
+    this.userService.deleteUser(row.id).subscribe((data) => {
       this.dataSource = this.dataSource.filter((user) => user.id !== row.id);
+      console.log(data);
     });
   }
 

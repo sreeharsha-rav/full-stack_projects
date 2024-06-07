@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserList, UserRequest } from './user.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,15 +22,15 @@ export class UserService {
   }
 
   createUser(userRequest: UserRequest): Observable<any> {
-    return this.http.post<any>(this.apiUrl, userRequest);
+    return this.http.post<any>(this.apiUrl, userRequest, {responseType: 'text' as 'json'});
   }
 
-  updateUser(id: number, userRequest: UserRequest, httpOptions: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, userRequest, httpOptions);
+  updateUser(id: number, userRequest: UserRequest): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, userRequest, {responseType: 'text' as 'json'});
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/${id}`, {responseType: 'text' as 'json'});
   }
 
 }

@@ -29,4 +29,6 @@ A simple single-page application for user management. The application is built u
 ## Further Improvements
 
 - Pagination for the user table
+- Validation for the user form
 - Search functionality for the user table
+- Optimize request handling for better performance
