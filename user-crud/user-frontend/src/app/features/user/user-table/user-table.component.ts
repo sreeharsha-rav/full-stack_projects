@@ -3,6 +3,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
 
 @Component({
   selector: 'app-user-table',
@@ -31,8 +33,8 @@ import { UserService } from '../user.service';
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let row">
-            <button mat-button color="primary">Edit</button>
-            <button mat-button color="warn">Delete</button>
+            <button mat-button color="primary" (click)="openEditUserDialog(row)">Edit</button>
+            <button mat-button color="warn" (click)="deleteUser(row)">Delete</button>
           </td>
         </ng-container>
     
@@ -48,19 +50,47 @@ import { UserService } from '../user.service';
     }
   `,
   standalone: true,
-  imports: [MatTableModule, MatButtonModule]
+  imports: [MatTableModule, MatButtonModule, EditUserDialogComponent]
 })
 export class UserTableComponent {
 
   displayedColumns: string[] = ['id', 'name', 'email', 'actions'];
   dataSource: User[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private editDialog: MatDialog
+  ) {}
 
   ngOnInit() {
-    // Fetch all users
+    this.getUserData();
+  }
+
+  getUserData() {
     this.userService.getAllUsers().subscribe((data) => {
       this.dataSource = data.users;
+    });
+  }
+
+  openEditUserDialog(row: User) {
+    const dialogRef = this.editDialog.open(EditUserDialogComponent, {
+      data: {
+        id: row.id,
+        name: row.name,
+        email: row.email
+      }
+    });
+
+    // Update the user data after the dialog is closed
+    dialogRef.afterClosed().subscribe((data) => {
+      console.log('Dialog closed and updated data: ', data);
+      this.getUserData();
+    });
+  }
+
+  deleteUser(row: User) {
+    this.userService.deleteUser(row.id).subscribe(() => {
+      this.dataSource = this.dataSource.filter((user) => user.id !== row.id);
     });
   }
 

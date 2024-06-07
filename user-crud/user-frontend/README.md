@@ -8,32 +8,23 @@ A simple single-page application for user management. The application is built u
 
 ## Development
 
-### Project Structure
-
-Main files and directories:
-```
-src/                               # Source files
-├── app/                           # Application code
-│   ├── features/                  # Feature modules
-│   │   ├── user/                  # User module
-│   │   │   ├── user-table/        # User table component
-│   │   │   ├── user.model.ts      # User model
-│   │   │   ├── user.service.ts    # User service
-│   │   │   ├── user.component.ts  # User component
-│   ├── shared/                    # User form component
-│   |   ├── navbar/                # Navbar component
-│   ├── app.component.ts           # Root component
-│   ├── app.config.ts              # Configuration file
-├── index.html                     # Main HTML file
-├── main.ts                        # Main entry point
-├── styles.css                     # Global styles
-```
-
 ### Core Components
 
 - `app.component.ts`: The root component of the application
+- `navbar.component.ts`: The navbar component that contains the application title
+- `user.component.ts`: The main component that contains the user table and the add user dialog
+- `add-user-dialog.component.ts`: The add user dialog component
+- `user-table.component.ts`: The user table component that displays the list of users
+- `edit-user-dialog.component.ts`: The edit user dialog component
 
 ### Component Map
+
+- `app.component.ts`:
+  - `navbar.component.ts`
+  - `user.component.ts`
+    - `add-user-dialog.component.ts`
+    - `user-table.component.ts`
+      - `edit-user-dialog.component.ts`
 
 ## Further Improvements
 

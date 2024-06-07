@@ -13,7 +13,7 @@ import { UserTableComponent } from './user-table/user-table.component';
   ],
   template: `
     <div class="create-user">
-      <button mat-raised-button color="accent">Add User</button>
+      <button mat-raised-button color="accent" (click)="openAddUserDialog()">Add User</button>
     </div>
     <div class="user-table">
       <app-user-table></app-user-table>
@@ -34,4 +34,9 @@ import { UserTableComponent } from './user-table/user-table.component';
 })
 export class UserComponent {
 
+  constructor() {}
+
+  openAddUserDialog() {
+    console.log('Add User');
+  }
 }
