@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserTableComponent } from './user-table/user-table.component';
 
 @Component({
   selector: 'app-user',
@@ -9,14 +9,14 @@ import { UserListComponent } from './user-list/user-list.component';
   imports: [
     MatDividerModule,
     MatButtonModule,
-    UserListComponent
+    UserTableComponent
   ],
   template: `
     <div class="create-user">
-      <button mat-raised-button>Add User</button>
+      <button mat-raised-button color="accent">Add User</button>
     </div>
-    <div class="user-list">
-      <app-user-list></app-user-list>
+    <div class="user-table">
+      <app-user-table></app-user-table>
     </div>
   `,
   styles: `
@@ -26,7 +26,7 @@ import { UserListComponent } from './user-list/user-list.component';
       margin-right: 16px;
       padding: 16px 16px 0 0;
     }
-    .user-list {
+    .user-table {
       padding: 16px;
       margin: 0 16px 16px 16px;
     }

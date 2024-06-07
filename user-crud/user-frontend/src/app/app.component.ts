@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from './navbar/navbar.component';
-import { UserComponent } from './user/user.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { UserComponent } from './features/user/user.component';
 
 @Component({
   selector: 'app-root',

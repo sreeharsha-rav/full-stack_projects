@@ -12,14 +12,21 @@ A simple single-page application for user management. The application is built u
 
 Main files and directories:
 ```
-src/                        # Source files
-├── app/                    # Application code
-│   ├── components/         # Components
-│   ├── app.component.ts    # Root component
-│   ├── app.config.ts       # Configuration file
-├── index.html              # Main HTML file
-├── main.ts                 # Main entry point
-├── styles.css              # Global styles
+src/                               # Source files
+├── app/                           # Application code
+│   ├── features/                  # Feature modules
+│   │   ├── user/                  # User module
+│   │   │   ├── user-table/        # User table component
+│   │   │   ├── user.model.ts      # User model
+│   │   │   ├── user.service.ts    # User service
+│   │   │   ├── user.component.ts  # User component
+│   ├── shared/                    # User form component
+│   |   ├── navbar/                # Navbar component
+│   ├── app.component.ts           # Root component
+│   ├── app.config.ts              # Configuration file
+├── index.html                     # Main HTML file
+├── main.ts                        # Main entry point
+├── styles.css                     # Global styles
 ```
 
 ### Core Components
@@ -30,4 +37,5 @@ src/                        # Source files
 
 ## Further Improvements
 
-- Search functionality for the user list
+- Pagination for the user table
+- Search functionality for the user table
