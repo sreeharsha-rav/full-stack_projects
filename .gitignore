@@ -1,0 +1,8 @@
+# ignore VS code files
+.vscode
+
+# ignore IntelliJ IDEA files
+.idea
+
+# ignore DS_Store files
+.DS_Store
